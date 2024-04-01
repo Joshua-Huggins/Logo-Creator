@@ -1,5 +1,8 @@
+// Packages needed for the application
 const fs = require('fs');
 const inquirer = require('inquirer');
+// will run the logo generator from the library 
+const generateShape = require('./lib/shape.js');
 
 // Validate user input otherwise throw error and return to question
 function validateInput(value) {
@@ -11,7 +14,7 @@ function validateInput(value) {
 }
 
 // inquirer prompt
-const question = [
+const questions = [
     {
         type: 'list',
         name: 'shape',
@@ -40,4 +43,13 @@ const question = [
         name: 'textColor',
         message: "Please enter a color or hexidecimal number for your text color",
     },
-]
+];
+//function to initalize the beginning of the question
+function init() {
+    inquirer.prompt(questions).then((data) => {
+        console.log(JSON.stringify(data, null, " "));
+    });
+}
+
+// call the function to initalize the beginning of the application
+init();
