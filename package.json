@@ -4,7 +4,7 @@
   "description": "node application to create a logo",
   "main": "index.js",
   "scripts": {
-    "test": "run test"
+    "test": "run jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Joshua-Huggins/Logo-Creator#readme",
   "devDependencies": {
     "inquirer": "^8.2.4"
+  },
+  "dependencies": {
+    "jest": "^29.7.0"
   }
 }
