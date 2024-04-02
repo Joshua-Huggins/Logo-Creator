@@ -2,7 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 // will run the logo generator from the library 
-const generateShape = require('./lib/shape.js');
+const generateLogo = require('./lib/generateLogo');
 
 // Validate user input otherwise throw error and return to question
 function validateInput(value) {
@@ -44,10 +44,22 @@ const questions = [
         message: "Please enter a color or hexidecimal number for your text color",
     },
 ];
+
+// functions will generate the logo with the Generate logo functions
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, generateLogo(data), function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Logo successfully created!");
+    });
+}
+
 //function to initalize the beginning of the question
 function init() {
     inquirer.prompt(questions).then((data) => {
         console.log(JSON.stringify(data, null, " "));
+        writeToFile("logo.svg", data);
     });
 }
 
