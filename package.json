@@ -4,7 +4,7 @@
   "description": "node application to create a logo",
   "main": "index.js",
   "scripts": {
-    "test": "run jest"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
